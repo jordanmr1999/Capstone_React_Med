@@ -1,0 +1,19 @@
+/* ProfileCard.css */
+
+.profile-card {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .profile-info {
+    padding: 10px;
+  }
+  
+  /* Add more styling as needed */
+  

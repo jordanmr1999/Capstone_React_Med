@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import ProfileCard from "../ProfileCard/ProfileCard"; // Import your ProfileCard component
 import "./Navbar.css";
 
 const Navbar = () => {
     const [click, setClick] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -23,7 +22,6 @@ const Navbar = () => {
     
         // Reset state
         setIsLoggedIn(false);
-        setUsername("");
         setEmail("");
     
         // Remove the reviewFormData from local storage
@@ -80,8 +78,9 @@ const Navbar = () => {
                 </li>
                 {isLoggedIn ? (
                     <>
-                        <li className="link">
+                        <li className="link" onClick={handleDropdown}>
                             <span className="welcome-message">Welcome, {email}</span>
+                            {showDropdown && <ProfileCard email={email} />} {/* Pass email to ProfileCard */}
                         </li>
                         <li className="link">
                             <button className="btn2" onClick={handleLogout}>
