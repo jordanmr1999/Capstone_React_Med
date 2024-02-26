@@ -2,16 +2,33 @@ import React, { useState } from 'react';
 import './Reports.css'; // Assuming styles are defined there
 
 const doctors = [
-  { id: 1, name: 'Dr. John Smith', specialty: 'Cardiology', rating: 4.5 },
-  { id: 2, name: 'Dr. Jane Doe', specialty: 'Dermatology', rating: 4.8 },
-  { id: 3, name: 'Dr. Michael Lee', specialty: 'Orthopedics', rating: 4.2 },
+  { id: 1, name: 'Dr. John Smith', specialty: 'Cardiology', rating: 4.5, reportFileName: 'report1.pdf' },
+  { id: 2, name: 'Dr. Jane Doe', specialty: 'Dermatology', rating: 4.8, reportFileName: 'report2.pdf' },
+  { id: 3, name: 'Dr. Michael Lee', specialty: 'Orthopedics', rating: 4.2, reportFileName: 'report3.pdf' },
 ];
 
 const Reports = () => {
+  const publicUrl = process.env.PUBLIC_URL;
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
-  const handleButtonClick = (doctorId) => {
-    setSelectedDoctor(doctorId);
+  const handleViewReport = () => {
+    return (
+        <div>
+        <iframe src='./patient_report.pdf' width='100%' height='500px'/>
+        </div>
+        );
+      };
+
+  const downloadReport = () => {
+    // Use the 'download' attribute to trigger the download
+    const link = document.createElement('a');
+    link.href = process.env.PUBLIC_URL + '/patient_report.pdf';
+    link.download = 'patient_report.pdf';
+    link.click();
+  };
+
+  const handleButtonClick = (doctor) => {
+    setSelectedDoctor(doctor);
   };
 
   return (
@@ -34,15 +51,17 @@ const Reports = () => {
               <td>{doctor.name}</td>
               <td>{doctor.specialty}</td>
               <td>
-                <button onClick={() => handleButtonClick(doctor.id)}>View Report</button>
+                <button onClick={() => handleViewReport()}>View</button>
               </td>
               <td>
-                <button onClick={() => handleButtonClick(doctor.id)}>Download Report</button>
+                <button onClick={downloadReport()}>Download</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      
     </div>
   );
 };
