@@ -1,21 +1,16 @@
-
 import React, { useState } from 'react';
 import './Sign_Up.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
-
 const Sign_Up = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [showerr, setShowerr] = useState('');
-
     const navigate = useNavigate();
-
     const register = async (e) => {
         e.preventDefault();
-
         // API Call
         const response = await fetch(`${API_URL}/api/auth/register`, {
             method: "POST",
@@ -27,12 +22,9 @@ const Sign_Up = () => {
                 email: email,
                 password: password,
                 phone: phone,
-
             }),
         });
-
         const json = await response.json();
-
         if (json.authtoken) {
             sessionStorage.setItem("auth-token", json.authtoken);
             sessionStorage.setItem("name", name);
@@ -52,18 +44,17 @@ const Sign_Up = () => {
             }
         }
     };
-
     return (
         <div className="container" style={{marginTop:'5%'}}>
         <div className="signup-grid">
         <div className="signup-form">
          <form method="POST" onSubmit={register}>
-           <div className="form-group">
+            <div className="form-group">
                 <label htmlFor="email">Email</label>
                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control" placeholder="Enter your email" aria-describedby="helpId" />
                  {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
-                        </div>
-                        <div className="form-group">
+            </div>
+            <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input value={name} type="text" onChange={(e) => setName(e.target.value)} name="name" id="name" className="form-control" placeholder="Enter your name" aria-describedby="helpId" />
             </div>
@@ -85,5 +76,4 @@ const Sign_Up = () => {
  //Sign up role is not stored in database. You can apply logic for this according to your react code.
     );
 }
-
 export default Sign_Up;
