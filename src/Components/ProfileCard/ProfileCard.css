@@ -3,7 +3,6 @@
 .profile-card {
     position: absolute;
     top: 100%;
-    left: 0;
     width: 200px;
     background-color: #fff;
     border: 1px solid #ccc;

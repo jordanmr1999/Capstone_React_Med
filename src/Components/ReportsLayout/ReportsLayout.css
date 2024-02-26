@@ -1,0 +1,30 @@
+.container {
+    max-width: 900px;
+    margin: 0;
+    padding: 20px;
+    margin-top: 10%;
+    overflow: hidden;
+  }
+
+table {
+    border-collapse: collapse;
+    width:900px;
+    justify-content: flex-start;
+    /* margin: 20px 0; */
+    /* margin-left: 100px; */
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .review-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
