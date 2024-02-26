@@ -1,0 +1,42 @@
+/* GiveReviews.css */
+
+/* Style for the warning message */
+.warning {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  /* Style for the form container */
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  /* Style for form inputs */
+  label {
+    margin-top: 10px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style for the rating component */
+  .rating {
+    margin-top: 15px;
+  }
+  
+  /* Style for the disabled submit button */
+  button.disableSubmit {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+  }
+  
+  /* Add any additional styles you want */
+  
