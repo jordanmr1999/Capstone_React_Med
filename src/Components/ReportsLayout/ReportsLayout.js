@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Reports.css'; // Assuming styles are defined there
+import './ReportsLayout.css'; 
 
 const doctors = [
   { id: 1, name: 'Dr. John Smith', specialty: 'Cardiology', rating: 4.5, reportFileName: 'report1.pdf' },
@@ -12,12 +12,12 @@ const Reports = () => {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   const handleViewReport = () => {
-    return (
+      return (
         <div>
-        <iframe src='./patient_report.pdf' width='100%' height='500px'/>
+          <iframe title="Report" src={`${process.env.PUBLIC_URL}/patient_report.pdf`} width="100%" height="500px" />
         </div>
-        );
-      };
+      );
+  };
 
   const downloadReport = () => {
     // Use the 'download' attribute to trigger the download
@@ -51,10 +51,10 @@ const Reports = () => {
               <td>{doctor.name}</td>
               <td>{doctor.specialty}</td>
               <td>
-                <button onClick={() => handleViewReport()}>View</button>
+                <button onClick={handleViewReport}>View</button>
               </td>
               <td>
-                <button onClick={downloadReport()}>Download</button>
+                <button onClick={downloadReport}>Download</button>
               </td>
             </tr>
           ))}

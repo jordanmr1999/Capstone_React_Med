@@ -8,7 +8,7 @@ import InstantConsultation from './Components/InstantConsultationBooking/Instant
 import Notification from './Components/Notification/Notification';
 import ReviewForm from './Components/ReviewForm/ReviewForm';
 import ProfileForm from './Components/ProfileCard/ProfileForm';
-import Reports from './Components/ProfileCard/Reports';
+import Reports from './Components/ReportsLayout/ReportsLayout';
 
 function App() {
 
